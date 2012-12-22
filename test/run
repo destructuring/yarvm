@@ -2,8 +2,18 @@
 
 source ~/.rbenv/libexec/_profile
 
-for rb in ree 1.9.3 jruby; do
+for rb in ree 1.9.3; do
   echo "> testing $rb"
-  ./run.sh $rb
-  (cd $rb; ./run)
+  pth_a="$(mktemp -t XXXXXX)"
+  pth_b="$(mktemp -t XXXXXX)"
+
+  pushd $rb > /dev/null
+  bundle --quiet --local --path vendor/bundle
+  ./run > $pth_b
+  popd > /dev/null
+
+  ./run.sh $rb > $pth_a
+
+  diff $pth_a $pth_b
+  rm -f $pth_a $pth_b
 done
