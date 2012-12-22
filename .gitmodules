@@ -1,0 +1,6 @@
+[submodule ".rvm"]
+	path = .rvm
+	url = https://github.com/destructuring/rvm
+[submodule ".rbenv"]
+	path = .rbenv
+	url = https://github.com/destructuring/rbenv
