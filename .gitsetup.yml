@@ -1,0 +1,6 @@
+---
+remotes:
+  primary: git@github.com:destructuring/yarvm
+  secondary: git@bitbucket.org:destructuring/yarvm
+  sh: https://github.com/destructuring/jason
+  bump: https://github.com/destructuring/mixin-bump
