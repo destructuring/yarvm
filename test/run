@@ -8,12 +8,15 @@ for rb in ree 1.9.3; do
   pth_b="$(mktemp -t XXXXXX)"
 
   pushd $rb > /dev/null
+  rm -rf vendor/bundle
   bundle --quiet --local --path vendor/bundle
   ./run > $pth_b
   popd > /dev/null
 
   ./run.sh $rb > $pth_a
 
-  diff $pth_a $pth_b
+  if diff $pth_a $pth_b; then
+    cat $pth_a
+  fi
   rm -f $pth_a $pth_b
 done
