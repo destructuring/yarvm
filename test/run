@@ -2,7 +2,7 @@
 
 source ~/.rbenv/libexec/_profile
 
-for rb in ree 1.9.3; do
+for rb in ree 1.9.3 "$@"; do
   echo "> testing $rb"
   pth_a="$(mktemp -t XXXXXX)"
   pth_b="$(mktemp -t XXXXXX)"

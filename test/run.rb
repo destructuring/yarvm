@@ -4,4 +4,4 @@ require 'rubygems'
 require 'bundler/setup'
 
 puts "version #{RUBY_VERSION}, platform #{RUBY_PLATFORM}"
-puts "path: #{$:.sort.join("\n     ")}\n"
+puts "path:\n  #{$:.sort.join("\n  ")}\n"
