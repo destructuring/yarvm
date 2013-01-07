@@ -1,0 +1,9 @@
+--- 
+repository: git@github.com:destructuring/yarvm.git
+application: yarvm
+
+ruby_loader: rvm-exec
+app_ruby: default
+
+branches: [ master ]
+branch_regex: /
