@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    alpha_omega (1.5.17)
+    alpha_omega (1.5.18)
       capistrano
       capistrano-log_with_awesome
       capistrano_colors
