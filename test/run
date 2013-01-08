@@ -3,7 +3,7 @@
 source ~/.rbenv/libexec/_profile
 
 if [[ "$#" = 0 ]]; then
-  set -- ree 1.9.3
+  set -- ree 1.9.3 jruby
 fi
 
 for rb in "$@"; do
@@ -12,7 +12,7 @@ for rb in "$@"; do
   pth_b="$(mktemp -t XXXXXX)"
 
   pushd $rb > /dev/null
-  rm -rf vendor/bundle
+  rm -rf vendor/bundle .bundle
   bundle --quiet --local --path vendor/bundle
   ./run > $pth_b
   popd > /dev/null
