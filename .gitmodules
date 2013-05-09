@@ -1,6 +1,6 @@
 [submodule ".rvm"]
 	path = .rvm
-	url = https://github.com/destructuring/rvm
+	url = git@github.com:destructuring/rvm
 [submodule ".rbenv"]
 	path = .rbenv
-	url = https://github.com/destructuring/rbenv
+	url = git@github.com:destructuring/rbenv
