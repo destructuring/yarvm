@@ -7,6 +7,8 @@ shome=$(pwd)
 PATH="$shome/sbin:$PATH"
 PATH="$PATH:$shome/.rvm/bin"
 
+export rvm_path="$shome/.rvm"
+
 rvm uninstall "$nm_ruby" || true
 rvm install "$nm_ruby" --disable-binary --skip-gemsets --verify-downloads 2 "$@"
 rvm prepare "$nm_ruby" --install
