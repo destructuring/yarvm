@@ -8,6 +8,6 @@ PATH="$shome/sbin:$PATH"
 PATH="$PATH:$shome/.rvm/bin"
 
 rvm uninstall "$nm_ruby" || true
-rvm install "$nm_ruby" --disable-binary --skip-gemsets --verify-downloads 2 "$@"
+rvm install "$nm_ruby" --disable-binary --verify-downloads 2 "$@"
 rvm prepare "$nm_ruby" --install
 rvm uninstall "$nm_ruby"
