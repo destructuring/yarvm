@@ -14,17 +14,17 @@ rvm:
 	@libexec/build-rvm $(RVM)
 
 binary:
-	@libexec/build-rvm-ruby 1.9.3 --with-gcc=$(CC) --with-libyaml-dir=$(PKG_HOME)
-	@libexec/build-rvm-ruby 2.0.0 --with-gcc=clang --with-openssl-dir=$(PKG_HOME)
+	@libexec/build-ruby 1.9.3 --with-gcc=$(CC) --with-libyaml-dir=$(PKG_HOME)
+	@libexec/build-ruby 2.0.0 --with-gcc=clang --with-openssl-dir=$(PKG_HOME)
 
 jruby_binary:
-	@libexec/build-rvm-ruby jruby
+	@libexec/build-ruby jruby
 
 1.9.3:
-	@libexec/install-rvm-ruby 1.9.3 $(BUNDLER)
+	@libexec/install-ruby 1.9.3 $(BUNDLER)
 
 2.0.0:
-	@libexec/install-rvm-ruby 2.0.0 $(BUNDLER)
+	@libexec/install-ruby 2.0.0 $(BUNDLER)
 
 jruby:
-	@libexec/install-rvm-ruby jruby $(BUNDLER)
+	@libexec/install-ruby jruby $(BUNDLER)
