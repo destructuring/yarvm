@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-shome="$(cd -P -- "$(dirname -- "${BASH_SOURCE}")/.." && pwd -P)"
-
-export rvm_prefix="$shome"
-export rvm_path="$rvm_prefix/.rvm"
-export rvm_bin_path="$rvm_path/bin"
-
-exec $shome/.rvm/bin/rvm-exec $(cat $shome/etc/version) $(basename $0) "$@"
