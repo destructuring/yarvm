@@ -1,6 +1,8 @@
 RVM := 1.24.12
 BUNDLER := 1.3.6
 
+CC := $(shell basename $(shell which clang gcc | head -1))
+
 .PHONY: rvm
 
 all: ready
@@ -11,10 +13,16 @@ ready:
 rvm:
 	@libexec/build-rvm $(RVM)
 
-binary: rvm
-	@libexec/build-rvm-ruby 1.9.3
-	@libexec/build-rvm-ruby 2.0.0
+binary:
+	@libexec/build-rvm-ruby 1.9.3 --with-gcc=$(CC) --with-libyaml-dir=$(PKG_HOME)
+	@libexec/build-rvm-ruby 2.0.0 --with-gcc=clang --with-openssl-dir=$(PKG_HOME)
+	@libexec/build-rvm-ruby jruby
 
-install: rvm
+1.9.3:
 	@libexec/install-rvm-ruby 1.9.3 $(BUNDLER)
+
+2.0.0:
 	@libexec/install-rvm-ruby 2.0.0 $(BUNDLER)
+
+jruby:
+	@libexec/install-rvm-ruby jruby $(BUNDLER)

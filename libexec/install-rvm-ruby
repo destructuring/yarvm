@@ -7,6 +7,6 @@ shome=$(pwd)
 PATH="$shome/sbin:$PATH"
 PATH="$PATH:$shome/.rvm/bin"
 
-set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.bz2; set -f
+set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
 rvm-exec "$nm_ruby" gem list --local
 rvm-exec "$nm_ruby@global" gem install bundler -v "$ver_bundler"
