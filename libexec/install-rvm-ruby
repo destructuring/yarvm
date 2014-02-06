@@ -5,8 +5,8 @@ ver_bundler="$1"; shift
 
 shome=$(pwd)
 PATH="$shome/sbin:$PATH"
-PATH="$PATH:/usr/local/rvm/bin:$HOME/.rvm/bin"
+PATH="$PATH:$shome/.rvm/bin"
 
 set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.bz2; set -f
 rvm-exec "$nm_ruby" gem list --local
-(cd $shome/vendor/cache/rvm && rvm-exec "$nm_ruby@global" gem install bundler -v "$ver_bundler")
+rvm-exec "$nm_ruby@global" gem install bundler -v "$ver_bundler"
