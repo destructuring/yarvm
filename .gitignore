@@ -1,2 +1,6 @@
-/.bundle
-/vendor/bundle
+/.bash_profile
+/.bashrc
+/.profile
+/.rvmrc
+/.zlogin
+/.zshrc
