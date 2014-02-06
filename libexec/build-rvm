@@ -5,4 +5,4 @@ ver_rvm="$1"; shift
 shome=$(pwd)
 PATH="$shome/sbin:$PATH"
 
-env HOME="$shome" rvm_path="$shome/.rvm" $shome/.rvm/bin/rvm-installer --version $ver_rvm --without-gems="rvm rubygems-bundler" --quiet-curl
+env HOME="$shome" rvm_path="$shome/.rvm" rvm_autolibs_flag=0 $shome/.rvm/bin/rvm-installer --version $ver_rvm --without-gems="rvm rubygems-bundler" --quiet-curl
