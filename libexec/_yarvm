@@ -1,0 +1,6 @@
+shome="$(unset CDPATH; cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+
+export PKG_HOME="${PKG_HOME:=$shome/pkg}"
+export VAULT="${VAULT:=$shome/vault}"
+
+source $shome/.rbenv/libexec/_rbenv
