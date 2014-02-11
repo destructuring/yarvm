@@ -13,7 +13,7 @@ set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
 
 ln -nfs $YARVM/.rvm/rubies/*${nm_ruby}* $YARVM/.rbenv/versions/
 for a in $(set +f; ls -d $YARVM/.rvm/rubies/*${nm_ruby}*); do
-  fn_ruby="$(basename $nm-ruby)"
+  fn_ruby="$(basename $nm_ruby)"
   case $fn_ruby in
     ruby-*)
       ln -nfs $a $YARVM/.rbenv/versions/$(echo $fn_ruby | cut -d- -f2)
