@@ -1,7 +1,6 @@
 #!/bin/bash
 
 nm_ruby="$1"; shift
-ver_bundler="$1"; shift
 
 shome=$(pwd)
 PATH="$shome/sbin:$PATH"

@@ -3,12 +3,17 @@
 nm_ruby="$1"; shift
 ver_bundler="$1"; shift
 
-shome=$(pwd)
-PATH="$shome/sbin:$PATH"
-PATH="$PATH:$shome/.rvm/bin"
+YARVM=$(pwd)
+PATH="$YARVM/sbin:$PATH"
+PATH="$PATH:$YARVM/.rvm/bin"
 
 export rvm_path="$shome/.rvm"
 
 set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
-rvm-exec "$nm_ruby" gem list --local
-rvm-exec "$nm_ruby@global" gem install bundler -v "$ver_bundler"
+
+source $YARVM/.rbenv/libexec/_rbenv
+cd test/1.9.3
+gem install bundler -c "$ver_bundler"
+rbenv rehash
+hash -r
+./run
