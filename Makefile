@@ -14,8 +14,8 @@ rvm:
 	@libexec/build-rvm $(RVM)
 
 binary:
-	@libexec/build-ruby 1.9.3 --with-gcc=$(CC) --with-libyaml-dir=$(PKG_HOME)
-	@libexec/build-ruby 2.0.0 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
+	@libexec/build-ruby 1.9.3 --with-gcc=$(CC) --with-libyaml-dir=$(PKG_HOME) --with-openssl-dir=$(PKG_HOME)
+	#@libexec/build-ruby 2.0.0 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
 
 jruby_binary:
 	@libexec/build-ruby jruby
