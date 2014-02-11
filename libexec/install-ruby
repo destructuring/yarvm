@@ -7,7 +7,7 @@ YARVM=$(pwd)
 PATH="$YARVM/sbin:$PATH"
 PATH="$PATH:$YARVM/.rvm/bin"
 
-export rvm_path="$shome/.rvm"
+export rvm_path="$YARVM/.rvm"
 
 set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
 
