@@ -11,7 +11,22 @@ export rvm_path="$shome/.rvm"
 
 set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
 
+ln -nfs $YARVM/.rvm/rubies/*${nm_ruby}* $YARVM/.rbenv/versions/
+for a in $(set +f; ls -d $YARVM/.rvm/rubies/*${nm_ruby}*); do
+  fn_ruby="$(basename $nm-ruby)"
+  case $fn_ruby in
+    ruby-*)
+      ln -nfs $a $YARVM/.rbenv/versions/$(echo $fn_ruby | cut -d- -f2)
+      ;;
+    *)
+      ln -nfs $a $YARVM/.rbenv/versions/$(echo $fn_ruby | cut -d- -f1-2)
+      ln -nfs $a $YARVM/.rbenv/versions/$(echo $fn_ruby | cut -d- -f1)
+      ;;
+  esac
+done
+
 source $YARVM/.rbenv/libexec/_rbenv
+
 cd test/1.9.3
 gem install bundler -c "$ver_bundler"
 rbenv rehash
