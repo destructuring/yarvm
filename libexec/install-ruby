@@ -9,7 +9,6 @@ PATH="$PATH:$YARVM/.rvm/bin"
 
 export rvm_path="$YARVM/.rvm"
 
-set -x
 set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
 
 (set +f; ln -nfs $YARVM/.rvm/rubies/*${nm_ruby}* $YARVM/.rbenv/versions/)
@@ -28,13 +27,9 @@ done
 
 source $YARVM/.rbenv/libexec/_rbenv
 
-cd test/1.9.3
+cd test/$nm_ruby
 gem install bundler -v "$ver_bundler"
 rbenv rehash
 hash -r
-for a in ruby gem bundle; do
-  which $a
-  $a --version
-done
 cd ..
-./run 1.9.3
+./run $nm_ruby
