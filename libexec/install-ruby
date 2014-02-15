@@ -8,11 +8,11 @@ PATH="$YARVM/sbin:$PATH"
 PATH="$PATH:$YARVM/.rvm/bin"
 
 bin_prefix="$(bin/guess-os)$(echo ${YARVM} | tr / _)"
-mv -v "$VAULT/packages/${bin_prefix}/*" .
+(set +f; cp "$VAULT/packages/${bin_prefix}/*" .)
 
 export rvm_path="$YARVM/.rvm"
 
-set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*; set -f
+(set +f; rvm mount --skip-gemsets -r ./*${nm_ruby}*.tar.*)
 
 (set +f; ln -nfs $YARVM/.rvm/rubies/*${nm_ruby}* $YARVM/.rbenv/versions/)
 for a in $(set +f; ls -d $YARVM/.rvm/rubies/*${nm_ruby}*); do
