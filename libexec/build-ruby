@@ -12,3 +12,12 @@ rvm uninstall "$nm_ruby" || true
 rvm install "$nm_ruby" --disable-binary --verify-downloads 2 "$@"
 rvm prepare "$nm_ruby" --install
 rvm uninstall "$nm_ruby"
+
+bin_prefix="$(bin/guess-os)$(echo ${shome} | tr / _)"
+
+for a in *tar*; do
+  if [[ -f "$a" ]]; then
+    mkdir -p "$VAULT/packages/${bin_prefix}"
+    mv -v "$a" "$VAULT/packages/${bin_prefix}/"
+  fi
+done
