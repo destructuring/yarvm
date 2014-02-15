@@ -2,18 +2,18 @@
 
 nm_ruby="$1"; shift
 
-shome=$(pwd)
-PATH="$shome/sbin:$PATH"
-PATH="$PATH:$shome/.rvm/bin"
+YARVM=$(pwd)
+PATH="$YARVM/sbin:$PATH"
+PATH="$PATH:$YARVM/.rvm/bin"
 
-export rvm_path="$shome/.rvm"
+export rvm_path="$YARVM/.rvm"
 
 rvm uninstall "$nm_ruby" || true
 rvm install "$nm_ruby" --disable-binary --verify-downloads 2 "$@"
 rvm prepare "$nm_ruby" --install
 rvm uninstall "$nm_ruby"
 
-bin_prefix="$(bin/guess-os)$(echo ${shome} | tr / _)"
+bin_prefix="$(bin/guess-os)$(echo ${YARVM} | tr / _)"
 
 for a in *tar*; do
   if [[ -f "$a" ]]; then

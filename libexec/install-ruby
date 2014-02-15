@@ -7,7 +7,7 @@ YARVM=$(pwd)
 PATH="$YARVM/sbin:$PATH"
 PATH="$PATH:$YARVM/.rvm/bin"
 
-bin_prefix="$(bin/guess-os)$(echo ${shome} | tr / _)"
+bin_prefix="$(bin/guess-os)$(echo ${YARVM} | tr / _)"
 mv -v "$VAULT/packages/${bin_prefix}/*" .
 
 export rvm_path="$YARVM/.rvm"
