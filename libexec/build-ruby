@@ -18,6 +18,6 @@ bin_prefix="$(bin/guess-os)$(echo ${YARVM} | tr / _)"
 for a in *tar*; do
   if [[ -f "$a" ]]; then
     mkdir -p "$VAULT/packages/${bin_prefix}"
-    mv -v "$a" "$VAULT/packages/${bin_prefix}/"
+    cp -v "$a" "$VAULT/packages/${bin_prefix}/"
   fi
 done
