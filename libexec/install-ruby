@@ -8,7 +8,7 @@ PATH="$YARVM/sbin:$PATH"
 PATH="$PATH:$YARVM/.rvm/bin"
 
 bin_prefix="$(bin/guess-os)$(echo ${YARVM} | tr / _)"
-(set +f; cp -v "$VAULT/packages/${bin_prefix}/*" .)
+(set +f; cp -v "$VAULT/packages/${bin_prefix}"/* .)
 
 export rvm_path="$YARVM/.rvm"
 
