@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -efu
+
 source ../.rbenv/libexec/_profile
 
 for rb in "$@"; do
