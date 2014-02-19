@@ -4,3 +4,4 @@ rvm_without_gems="rvm rubygems-bundler"
 rvm_autoupdate_flag=0
 rvm_user_install_flag=1
 rvm_autolibs_flag=0
+rvm_autoupdate_flag=0
