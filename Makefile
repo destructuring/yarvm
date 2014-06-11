@@ -3,7 +3,7 @@ BUNDLER := 1.6.2
 
 CC := $(shell basename $(shell which clang gcc | head -1))
 
-.PHONY: rvm
+.PHONY: rvm test
 
 all: ready
 
@@ -19,6 +19,10 @@ binary:
 
 install: 2.0.0 2.1.2
 	@true
+
+test:
+	@cd test && ./run 2.0.0
+	@cd test && ./run 2.1.2
 
 binary_jruby:
 	@libexec/build-ruby jruby
