@@ -1,5 +1,5 @@
-RVM := 1.24.12
-BUNDLER := 1.3.6
+RVM := 1.25.26
+BUNDLER := 1.6.2
 
 CC := $(shell basename $(shell which clang gcc | head -1))
 
@@ -16,6 +16,7 @@ rvm:
 binary:
 	@libexec/build-ruby 1.9.3 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME) --with-libyaml-dir=$(PKG_HOME)
 	@libexec/build-ruby 2.0.0 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
+	@libexec/build-ruby 2.1.2 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
 
 binary_jruby:
 	@libexec/build-ruby jruby
@@ -25,6 +26,9 @@ binary_jruby:
 
 2.0.0:
 	@libexec/install-ruby 2.0.0 $(BUNDLER)
+
+2.1.2:
+	@libexec/install-ruby 2.1.2 $(BUNDLER)
 
 jruby:
 	@libexec/install-ruby jruby $(BUNDLER)
