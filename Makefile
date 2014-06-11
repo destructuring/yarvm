@@ -17,7 +17,7 @@ binary:
 	@libexec/build-ruby 2.0.0 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
 	@libexec/build-ruby 2.1.2 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
 
-instal: 2.0.0 2.1.2
+install: 2.0.0 2.1.2
 	@true
 
 binary_jruby:
