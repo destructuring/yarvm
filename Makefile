@@ -15,15 +15,13 @@ rvm:
 
 binary:
 	@libexec/build-ruby 2.0.0 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
-	@libexec/build-ruby 2.1.1 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
 	@libexec/build-ruby 2.1.2 --with-gcc=$(CC) --with-openssl-dir=$(PKG_HOME)
 
-install: 2.0.0 2.1.1 2.1.2
+install: 2.0.0 2.1.2
 	@true
 
 test:
 	@cd test && ./run 2.0.0
-	@cd test && ./run 2.1.1
 	@cd test && ./run 2.1.2
 
 binary_jruby:
@@ -31,9 +29,6 @@ binary_jruby:
 
 2.0.0:
 	@libexec/install-ruby 2.0.0 $(BUNDLER)
-
-2.1.1:
-	@libexec/install-ruby 2.1.1 $(BUNDLER)
 
 2.1.2:
 	@libexec/install-ruby 2.1.2 $(BUNDLER)
